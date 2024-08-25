@@ -3,7 +3,7 @@ import Menu from "./menu";
 
 function Sidebar() {
   return (
-    <aside className="w-[275px] h-screen  px-2">
+    <aside className="w-[275px] h-screen ">
       <Logo />
       <Menu />
     </aside>
