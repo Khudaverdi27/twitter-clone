@@ -5,3 +5,18 @@
 body {
   @apply bg-black text-white;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #16181c;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3e4144;
+}

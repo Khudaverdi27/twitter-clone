@@ -1,11 +1,15 @@
+import Profile from "../../pages/profile";
 import Logo from "../common/Logo";
 import Menu from "./menu";
 
 function Sidebar() {
   return (
-    <aside className="w-[275px] h-screen ">
+    <aside className="w-[275px] h-screen overflow-auto flex flex-col">
       <Logo />
       <Menu />
+      <div className="mt-auto">
+        <Profile />
+      </div>
     </aside>
   );
 }
