@@ -1,0 +1,29 @@
+[
+  {
+    "id": 22,
+    "name": "Haber Meydanı",
+    "username": "@habermeydani_",
+    "img": "https://pbs.twimg.com/profile_images/1773882500319776768/8vRwoYc1_normal.jpg",
+    "isPremium": true
+  },
+  {
+    "id": 28,
+    "name": "Aykırı",
+    "username": "@aykiricomtr",
+    "img": "https://pbs.twimg.com/profile_images/1694580341191643137/KoimEp99_normal.jpg",
+    "isOfficial": true
+  },
+  {
+    "id": 12,
+    "name": "Conflict",
+    "username": "@ConflictTR",
+    "img": "https://pbs.twimg.com/profile_images/1394059844144017408/ZjnSsGbZ_normal.jpg",
+    "isPremium": true
+  },
+  {
+    "id": 62,
+    "name": "Deckard",
+    "username": "@donemadami",
+    "img": "https://pbs.twimg.com/profile_images/1161252827366404097/D_teV2Q8_normal.jpg"
+  }
+]

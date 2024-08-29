@@ -4,6 +4,7 @@ import trends from "./trends.json";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import Icon from "../common/Icon";
 import { Link } from "react-router-dom";
+import RightBarSection from "./RightBarSection";
 
 function Trends() {
   const [count, setCount] = useState(3);
@@ -14,8 +15,7 @@ function Trends() {
   };
 
   return (
-    <article className="bg-black  border border-[#16181c] mb-4 rounded-2xl  flex flex-col gap-2.5 text-white">
-      <h5 className="font-bold  py-2 px-4">Trends for you</h5>
+    <RightBarSection count={count} setCount={setCount} title={"Trends for you"}>
       {trendsData(count).map((t, i) => (
         <div
           key={i}
@@ -54,13 +54,7 @@ function Trends() {
           </Popover>
         </div>
       ))}
-      <button
-        onClick={() => setCount(count + 3)}
-        className="text-left py-2 px-4 text-[#1a89d4] hover:bg-hover rounded-b-xl"
-      >
-        Show more
-      </button>
-    </article>
+    </RightBarSection>
   );
 }
 
