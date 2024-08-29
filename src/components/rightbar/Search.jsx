@@ -22,7 +22,7 @@ function Search() {
     }
   }, [value]);
   return (
-    <div className="relative">
+    <div className="sticky top-0 bg-black z-10 ">
       <div className="min-h-[32px] h-[53px] mb-3 flex items-center">
         <label className="h-[43px] pr-2 relative rounded-full bg-[#202327] w-full border border-transparent focus-within:bg-black focus-within:border-[#1D9BF0] flex items-center">
           <span className="w-[56px] h-full flex items-center justify-center">

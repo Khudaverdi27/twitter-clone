@@ -4,7 +4,7 @@ import Menu from "./menu";
 
 function Sidebar() {
   return (
-    <aside className="w-[275px] h-screen overflow-auto flex flex-col">
+    <aside className="w-[275px] h-screen overflow-auto flex flex-col sticky top-0 left-0 ">
       <Logo />
       <Menu />
       <div className="mt-auto">

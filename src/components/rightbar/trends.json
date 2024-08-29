@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Business & finance · Trending",
+    "topic": {
+      "type": "query",
+      "value": "$NVDA"
+    },
+    "postCount": 39200
+  },
+  {
+    "title": "Trending",
+    "topic": {
+      "type": "query",
+      "value": "Sundowns"
+    },
+    "postCount": 100
+  },
+  {
+    "title": "Events · Trending",
+    "topic": {
+      "type": "tag",
+      "value": "SoftwareEngineering"
+    },
+    "postCount": null
+  },
+  {
+    "title": "Politics · Trending",
+    "topic": {
+      "type": "query",
+      "value": "The Trump"
+    },
+    "postCount": 908000
+  }
+]
