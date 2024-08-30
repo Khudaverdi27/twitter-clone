@@ -46,6 +46,7 @@ function MustBeFollows() {
             size="small"
             variant="white"
             onClick={() => handleFollowClick(f.id)}
+            outline={followStates[f.id] && true}
           >
             {followStates[f.id] ? "Following" : "Follow"}
           </Button>
