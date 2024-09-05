@@ -4,11 +4,14 @@ import follows from "./follows.json";
 import { Link } from "react-router-dom";
 import Icon from "../common/Icon";
 import Button from "../common/Button";
+import MyModal from "../common/Modal";
 
 function MustBeFollows() {
   const [count, setCount] = useState(3);
   const [followStates, setFollowStates] = useState({});
-  const [hover, setHover] = useState(false);
+  const [hoveredId, setHoveredId] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalId, setModalId] = useState(null);
 
   const followsData = (number) => {
     return follows.slice(0, number);
@@ -21,6 +24,22 @@ function MustBeFollows() {
     }));
   };
 
+  const openModal = (id) => {
+    setModalId(id);
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const closeModalWithConfirim = () => {
+    setIsOpen(false);
+    if (modalId) {
+      handleFollowClick(modalId);
+    }
+    setModalId(null);
+  };
+
   return (
     <RightBarSection count={count} title={"Who to follow"} setCount={setCount}>
       {followsData(count).map((f) => (
@@ -31,7 +50,6 @@ function MustBeFollows() {
         >
           <div className="flex items-center space-x-2">
             <img className="size-10 rounded-full" src={f.img} alt="" />
-
             <div>
               <p className="font-bold flex items-center space-x-1">
                 <span>{f.name}</span>
@@ -43,21 +61,35 @@ function MustBeFollows() {
               <span className="text-[15px] text-[#575b5f]">{f.username}</span>
             </div>
           </div>
-          <Button
-            size="small"
-            variant="white"
-            onClick={() => handleFollowClick(f.id)}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            followActive={followStates[f.id] && true}
-            outline={followStates[f.id] && hover && true}
+
+          <MyModal
+            title={f.username}
+            isOpen={isOpen && modalId === f.id}
+            closeModal={closeModal}
+            closeModalWithConfirim={closeModalWithConfirim}
           >
-            {followStates[f.id] && !hover
-              ? "Following"
-              : followStates[f.id] && hover
-              ? "Unfollow"
-              : "Follow"}
-          </Button>
+            <Button
+              size="small"
+              variant="white"
+              onClick={() => {
+                if (followStates[f.id] && hoveredId === f.id) {
+                  openModal(f.id);
+                } else {
+                  handleFollowClick(f.id);
+                }
+              }}
+              onMouseEnter={() => setHoveredId(f.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              followActive={followStates[f.id]}
+              outline={followStates[f.id] && hoveredId === f.id}
+            >
+              {followStates[f.id] && hoveredId === f.id
+                ? "Unfollow"
+                : followStates[f.id]
+                ? "Following"
+                : "Follow"}
+            </Button>
+          </MyModal>
         </Link>
       ))}
     </RightBarSection>
