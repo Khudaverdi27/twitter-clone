@@ -8,6 +8,7 @@ import Button from "../common/Button";
 function MustBeFollows() {
   const [count, setCount] = useState(3);
   const [followStates, setFollowStates] = useState({});
+  const [hover, setHover] = useState(false);
 
   const followsData = (number) => {
     return follows.slice(0, number);
@@ -46,9 +47,16 @@ function MustBeFollows() {
             size="small"
             variant="white"
             onClick={() => handleFollowClick(f.id)}
-            outline={followStates[f.id] && true}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            followActive={followStates[f.id] && true}
+            outline={followStates[f.id] && hover && true}
           >
-            {followStates[f.id] ? "Following" : "Follow"}
+            {followStates[f.id] && !hover
+              ? "Following"
+              : followStates[f.id] && hover
+              ? "Unfollow"
+              : "Follow"}
           </Button>
         </Link>
       ))}

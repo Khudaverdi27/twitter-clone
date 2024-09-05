@@ -5,6 +5,7 @@ function Button({
   size = "normal",
   variant = "primary",
   outline = false,
+  followActive = false,
   ...props
 }) {
   return (
@@ -19,6 +20,7 @@ function Button({
           "bg-[#fff] text-black font-semibold": variant === "white",
           "hover:text-red-500 hover:border-[#67070F] hover:bg-red-600/10 bg-black text-white border border-gray-500":
             outline,
+          " bg-black text-white border border-gray-500": followActive,
         }
       )}
       {...props}
